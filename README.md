@@ -27,10 +27,10 @@ Run the script and fill these in with your own numbers:
 
 | | Accuracy |
 |---|---|
-| Favorite baseline | ? |
-| XGBoost model | ? |
+| Favorite baseline | 59.7% |
+| XGBoost model | 58.7% |
 
-Betting backtest: bets = ?, final bankroll = ?, ROI = ?
+Betting backtest: bets = 277, wins = 47, final bankroll = 241.83 (started at 1000), ROI = -25.56%
 
 ## Things I learned / limitations
 - Features only use matches *before* the one being predicted, otherwise the model sees the future.
@@ -38,3 +38,10 @@ Betting backtest: bets = ?, final bankroll = ?, ROI = ?
 - Bookmaker odds include a margin, so I normalised the implied probabilities.
 - The backtest ignores things like betting limits and odds changing before kickoff.
 - This is for learning, not real gambling advice.
+
+## Findings
+- The model (58.7%) did not beat the "pick the favorite" baseline (59.7%). The bookmaker odds already hold most of the useful information.
+- The value betting strategy lost money on 2023-24: 277 bets, 47 wins, bankroll went from 1000 to about 242 (ROI -25.56%).
+- This suggests the market was pretty efficient on this data. The model mostly bet on outsiders and draws where it disagreed with the odds, and the bookmakers were usually right.
+- This is only one season, so the result is noisy either way.
+
